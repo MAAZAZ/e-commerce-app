@@ -59,7 +59,7 @@ public class CartService {
         final CartItem item = cart.getItems().stream()
                 .filter(i -> i.getProduct().getId().equals(productId))
                 .findFirst()
-                .orElseThrow(() -> new ItemNotFoundException("Item not found : " + productId));
+                .orElseThrow(() -> new ItemNotFoundException("Product not found : " + productId));
 
         item.setQuantity(quantity);
 

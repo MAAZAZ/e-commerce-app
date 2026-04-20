@@ -17,7 +17,7 @@ public class CategoryService {
     public Category create(final Category category, final Long parentId) {
         if (parentId != null) {
             final Category parent = categoryRepository.findById(parentId)
-                    .orElseThrow(() -> new ItemNotFoundException("Parent not found : "+ parentId));
+                    .orElseThrow(() -> new ItemNotFoundException("Category Parent not found : "+ parentId));
             category.setParent(parent);
         }
         return categoryRepository.save(category);
